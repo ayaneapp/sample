@@ -1,0 +1,28 @@
+<h1>歌詞マッチ</h1>
+<h3>歌詞一覧</h3>
+<h3>投稿を検索</h3>
+ <%= form_tag({controller:"tweets",action:"index"}, method: :get) do %>
+   <%= text_field_tag :search %>
+
+   <%= form_tag(tweets_path, method: "get") do %>
+    <%= select_tag "feeling", options_for_select([["喜", "喜"],["怒", "怒"],["哀","哀"],["楽","楽"],["その他","その他"]]) %>
+   
+   <%= submit_tag '検索する'  %>
+   
+   <%= @tweet %>
+   <% end %>
+<% end %>
+
+
+<%= link_to "新規投稿へ", tweets_new_path %>
+
+<div class="tweets-container">
+  <% @tweets.each do |t| %>
+    <div class="tweet">
+      <%= t.lyrics %>
+      <%= t.created_at %>
+      <%= link_to "詳細へ", tweet_path(t.id) %>
+     
+    </div>
+  <% end %>
+</div>
