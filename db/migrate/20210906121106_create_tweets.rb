@@ -6,7 +6,7 @@ class CreateTweets < ActiveRecord::Migration[6.1]
       t.string :lyrics
       t.string :link
       t.string :feeling
-
+      t.string :lyricist
       t.timestamps
     end
   end

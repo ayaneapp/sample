@@ -1,35 +1,42 @@
-<h1>歌詞マッチ</h1>
-<h3>新規Tweet</h3>
+
+<link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
+<h1 class="wf-nicomoji">カシマッチ</h1>
+<h3 class="wf-nicomoji">トウコウする</h3>
 <%= form_for @tweet do |f| %>
   <div class="field">
-  <%= f.label :lyrics %>
-  <%= f.text_field :lyrics, :size => 140 %>
- </div>
-
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title, :size => 140 %>
-    </div>
-  <div class="field">
-   <%= f.label :singer %>
-   <%= f.text_field :singer, :size => 140 %>
+  <%= f.label :lyrics%>
+  <%= f.text_field :lyrics, :size => 60 %>
   </div>
 
   <div class="field">
-   <%= f.label :link %>
-   <%= f.text_field :link, :size => 140 %>
+    <%= f.label :title %>
+    <%= f.text_field :title, :size => 60 %>
+    </div>
+  <div class="field">
+    <%= f.label :singer %>
+    <%= f.text_field :singer, :size => 60 %>
+  </div>
+
+  <div class="field">
+  <%= f.label :lyricist %>
+  <%= f.text_field :lyricist, :size => 60 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :link %>
+    <%= f.text_field :link, :size => 60 %>
   </div>
   
   <div class="field">
     <%= f.label :feeling %>
-    <p>喜: <%= f.check_box :feeling ,{ multiple: true, include_hidden: false }, "喜" %></p>
-    <p>怒: <%= f.check_box :feeling ,{ multiple: true, include_hidden: false }, "怒" %></p>
-    <p>哀: <%= f.check_box :feeling ,{ multiple: true, include_hidden: false }, "哀" %></p>
-    <p>楽: <%= f.check_box :feeling ,{ multiple: true, include_hidden: false }, "楽" %></p>
+    <p>元気になれる: <%= f.check_box :feeling ,{ multiple: true, include_hidden: false }, "元気になれる" %></p>
+    <p>感動する: <%= f.check_box :feeling ,{ multiple: true, include_hidden: false }, "感動する" %></p>
+    <p>キュンキュンする: <%= f.check_box :feeling ,{ multiple: true, include_hidden: false }, "キュンキュンする" %></p>
+    <p>悲しくなる: <%= f.check_box :feeling ,{ multiple: true, include_hidden: false }, "悲しくなる" %></p>
     <p>その他: <%= f.check_box :feeling ,{ multiple: true, include_hidden: false }, "その他" %></p>
   </div>
 
   
   <%= f.submit "Tweetする" %>
 <% end %>
-<%= link_to "Tweet一覧に戻る", tweets_path %>
+<p class="wf-nicomoji"><%= link_to "トップページ", tweets_path %></p>

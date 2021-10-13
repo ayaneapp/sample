@@ -1,3 +1,208 @@
-// Place all the styles related to the tweets controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.test__inline_block{
+  color:#fff;
+  position: relative;
+  margin: 5px;
+  background-color: #b2b2ff;
+  border-radius: 50px;
+  margin: 2em 0;
+  border: double 10px #8989ff;
+}
+
+/* 大きい丸 */
+.test__inline_block::before{
+  content: '';
+  position: relative;
+  display: block;
+  border-radius: 50%;
+  background-color: #fff;
+  top: 140px;
+  width: 30px;
+  height: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  border:  4px #8989ff solid ;
+}
+  /* 小さい丸 */
+.test__inline_block::after{
+  content: '';
+  position: relative;
+  display: block;
+  border-radius: 50%;
+  background-color: #fff;
+  top: 70px;
+  width: 15px;
+  height: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  border:  3px #8989ff solid ;
+}
+
+
+
+.test__inline_block nav{
+  display: inline-block;
+  height: 60%;
+  width: 95%;
+  text-align: right;
+  background-color: #b2b2ff;
+}
+.test__inline_block nav ul li {
+  display: inline-block;
+  margin-left:10px;
+  background-color: #b2b2ff;
+}
+
+.button {
+  
+  --offset: 5px;
+  --border-size: 2px;
+  
+  display: block;
+  position: relative;
+  margin-left: auto;
+  margin-top: 30px;
+  margin-right: auto;
+  padding: 0.3em 1em;
+  appearance: none;
+  border: 0;
+  background: transparent;
+  background-color: #ffff33;
+  color: #8989ff;
+  text-transform: uppercase;
+  letter-spacing: .0.1em;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 0;
+  box-shadow: inset 0 0 0 var(--border-size) currentcolor;
+  transition: background .8s ease;
+  
+  &:hover {
+    background: rgba(100, 0, 0, .03);
+  }
+  
+  &__horizontal,
+  &__vertical {
+    position: absolute;
+    top: var(--horizontal-offset, 0);
+    right: var(--vertical-offset, 0);
+    bottom: var(--horizontal-offset, 0);
+    left: var(--vertical-offset, 0);
+    transition: transform .8s ease;
+    will-change: transform;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      border: inherit;
+    }
+  }
+  
+  &__horizontal {
+    --vertical-offset: calc(var(--offset) * -1);
+    border-top: var(--border-size) solid currentcolor;
+    border-bottom: var(--border-size) solid currentcolor;
+    
+    &::before {
+      top: calc(var(--vertical-offset) - var(--border-size));
+      bottom: calc(var(--vertical-offset) - var(--border-size));
+      left: calc(var(--vertical-offset) * -1);
+      right: calc(var(--vertical-offset) * -1);
+    }
+  }
+  
+  &:hover &__horizontal {
+    transform: scaleX(0);
+  }
+  
+  &__vertical {
+    --horizontal-offset: calc(var(--offset) * -1);
+    border-left: var(--border-size) solid currentcolor;
+    border-right: var(--border-size) solid currentcolor;
+    
+    &::before {
+      top: calc(var(--horizontal-offset) * -1);
+      bottom: calc(var(--horizontal-offset) * -1);
+      left: calc(var(--horizontal-offset) - var(--border-size));
+      right: calc(var(--horizontal-offset) - var(--border-size));
+    }
+  }
+  
+  &:hover &__vertical {
+    transform: scaleY(0);
+  }
+  
+}
+
+html{
+  background-color: #b2b2ff;
+}
+
+
+.tweet{
+  display :inline;
+  border:3px  #8989ff double;
+  color: #6d6dff;
+  background-color: #fff;
+  margin:5%;
+  padding: 0.3em;
+}
+.select#feeling{
+  background-color: #b2b2ff;
+}
+
+
+
+body{
+  background-color: #b2b2ff;
+}
+
+html{
+  background-color: #b2b2ff;
+  }
+
+.tk{
+  background-color: #b2b2ff;
+}
+
+
+
+.mgr-10{
+  margin-right : 760px;
+}
+
+.wf-nicomoji { font-family: "Nico Moji"; }
+
+
+.form-control {
+  overflow: hidden;
+  width: 10%;
+  margin: 1em auto;
+  text-align: center;
+  background-color: #8989ff;
+  border: 3px solid #8989ff;
+  color: #fff;
+}
+.form-control select {
+  width: 100%;
+  padding-right: 1em;
+  cursor: pointer;
+  text-indent: 0.01px;
+  text-overflow: ellipsis;
+  outline: none;
+  background: transparent;
+  box-shadow: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.form-control select::-ms-expand {
+    display: none;
+}
+
+h1{
+  color:#fff
+}
+
+h3{
+  color:#fff
+}

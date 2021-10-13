@@ -1,14 +1,14 @@
-<h1>歌詞マッチ</h1>
-<h3>Tweet詳細</h3>
-<div class="tweet">
+<link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
+<h3 class="wf-nicomoji">Tweet詳細</h3>
+<div class="tweets">
   <p><%= @tweet.lyrics %></p>
   <p><%= @tweet.title %></p>
   <p><%= @tweet.singer %></p>
-  <p><%= @tweet.link %></p>
+  <p>
+  <a href="<%= @tweet.link %>"><%= @tweet.link %></a></p>
   <p><%= @tweet.feeling %></p>
-  <p><%= @tweet.created_at %></p>
 </div>
 
-<%= link_to "Tweet一覧に戻る", tweets_path %>
+<p class="wf-nicomoji"><%= link_to "トップページ", tweets_path %></p>
 <%= button_to 'いいね', tweet_likes_path(@tweet) %>
 <%= flash[:notice] %>

@@ -1,12 +1,11 @@
 class TweetsController < ApplicationController
     def index
-        if params[:search] == nil
-          @tweets= Tweet.all
-        elsif params[:search] == ''
-          @tweets= Tweet.all
+        if params[:feeling] == nil
+          @tweets = Tweet.order("RANDOM()").limit(20)
+        elsif params[:feeling] == ''
+          @tweets = Tweet.order("RANDOM()").limit(20)
         else
-          @tweets = Tweet.where("lyrics LIKE ? ",'%' + params[:search] + '%')
-          @tweets = Tweet.where("title LIKE ? ",'%' + params[:search] + '%')
+          @tweets = Tweet.where("feeling LIKE ? ",'%' + params[:feeling] + '%')
         end
     end
 
@@ -25,7 +24,6 @@ class TweetsController < ApplicationController
 
     def show
       @tweet = Tweet.find(params[:id])
-      
     end
     
     def search
@@ -35,11 +33,12 @@ class TweetsController < ApplicationController
     end
 
     def about
-      @tweet = Tweet.new
+      @tweets= Tweet.all
+
     end
     
       private
     def tweet_params
-      params.require(:tweet).permit(:title, :singer, :lyrics, :link, :feeling, { feeling: [] })
+      params.require(:tweet).permit(:title, :singer, :lyrics, :lyricist, :link, :feeling, { feeling: [] })
     end
 end

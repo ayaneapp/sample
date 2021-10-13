@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2021_09_11_122933) do
     t.string "lyrics"
     t.string "link"
     t.string "feeling"
+    t.string "lyricist"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

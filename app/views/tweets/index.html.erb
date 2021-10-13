@@ -1,28 +1,46 @@
-<h1>歌詞マッチ</h1>
-<h3>歌詞一覧</h3>
-<h3>投稿を検索</h3>
- <%= form_tag({controller:"tweets",action:"index"}, method: :get) do %>
-   <%= text_field_tag :search %>
+<div class = "tk">
+  <div class="test__inline_block", style="background-color: #b2b2ff;">
+  　<nav>
+      <ul>
+      <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
+      
+        <li><h1><p class="wf-nicomoji"><b>カシマッチ<span class="mgr-10">&emsp;</span></b></p></h1>
+        <li><p class="wf-nicomoji"><%= link_to "トップページ", tweets_path %></p></li>
+        <li><p class="wf-nicomoji"><%= link_to "カシマッチって？" ,about_tweets_path %></p></li>
+        <li><p class="wf-nicomoji"><%= link_to "トウコウする",new_tweet_path %></p></li>
+      　<li><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></li>
+      
+  　　</ul>
+    </nav>
+  </div>    
+    <br>
+    <br>
+    <%= form_tag({controller:"tweets",action:"index"}, method: :get) do %>
+      <div style="text-align: center">
+        <%= select_tag "feeling", options_for_select([["元気になれる", "元気になれる"],["感動する", "感動する"],["キュンキュンする","キュンキュン"],["悲しくなる","悲しくなる"],["その他","その他"]]),class: 'form-control'%>
 
-   <%= form_tag(tweets_path, method: "get") do %>
-    <%= select_tag "feeling", options_for_select([["喜", "喜"],["怒", "怒"],["哀","哀"],["楽","楽"],["その他","その他"]]) %>
-   
-   <%= submit_tag '検索する'  %>
-   
-   <%= @tweet %>
-   <% end %>
-<% end %>
-
-
-<%= link_to "新規投稿へ", tweets_new_path %>
-
-<div class="tweets-container">
-  <% @tweets.each do |t| %>
-    <div class="tweet">
-      <%= t.lyrics %>
-      <%= t.created_at %>
-      <%= link_to "詳細へ", tweet_path(t.id) %>
-     
-    </div>
-  <% end %>
+      </div>    
+        <button class="button">
+        <p class="wf-nicomoji">Match</p>
+            <div class="button__horizontal"></div>
+            <div class="button__vertical"></div>
+        </button>
+    <%= @tweet %>
+    <% end %>
+    <br>  
+  <div class="tweets-container">
+    <% @tweets.each do |t| %>
+      <div style="text-align: center">
+      <div class="tweet">
+        <%= t.lyrics %>
+        
+        <%= link_to "詳細", tweet_path(t.id) %>
+        <i class="fab fa-itunes-note"></i>
+      </div>
+      </div>
+      <br>
+    <% end %>
+  </div>
 </div>
+
+
